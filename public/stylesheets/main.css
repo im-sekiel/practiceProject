@@ -1,0 +1,334 @@
+:root {
+  --navyBlue: #245F73;
+  --lightBrown: #C19A6B;
+  --darkGray: #BBBDBC;
+  --lightGray: #F2F0EF;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 4fr 2fr 2fr 2fr 2fr 2fr 4fr;
+  grid-template-rows: .2fr 6fr 1fr;
+  font-size: 24px;
+  font-family: roboto;
+  background-color: var(--darkGray);
+}
+
+main {
+  display: grid;
+  grid-column: 2 / 7;
+  grid-row: 2 / 3;
+  background-color: white;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: .4fr 5fr;
+}
+
+header.banner {
+  display: grid;
+  grid-column: 1 / 8;
+  grid-row: 1 / 2;
+  background-color: var(--navyBlue);
+}
+
+header.main-header {
+  display: inline-grid;
+  grid-row: 1 / 2;
+  grid-column: 1 / 6;
+  background-color: var(--lightGray);
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+h1 {
+  font-size: 1.25em;
+  color: white;
+  justify-self: center;
+  align-self: end;
+  font-weight: 500;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.main-header button {
+  width: 8em;
+  height: 2em;
+  background-color: var(--navyBlue);
+  border-radius: .5em;
+  border: none;
+  color: var(--lightGray);
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  align-self: center;
+  justify-self: center;
+}
+
+.main-header button:nth-child(1) {
+  margin-right: 10em;
+}
+
+.main-header button:nth-child(2) {
+  margin-left: 10em;
+}
+
+.main-header button:hover {
+  background-color: var(--darkGray);
+  border: solid 1px white;
+  color: white;
+}
+
+.main-header input {
+  width: 15em;
+  height: 2em;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  align-self: center;
+  justify-self: start;
+  padding-left: .5em;
+}
+
+.main-header select {
+  display: inline;
+  grid-row: 1 / 2;
+  grid-column: 3 / 4;
+  align-self: center;
+  justify-self: flex-start;
+  height: 2.5em;
+  width: 8em;
+/*  margin-right: 14em;*/
+}
+
+div.contacts {
+  display: inline-grid;
+  padding:15px 40px;
+  grid-column: 1 / 6;
+  grid-row: 2 / 3;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  row-gap: 40px;
+  column-gap: 20px;
+}
+
+div.contact {
+  padding: 10px 10px;
+}
+
+div.contact h2 {
+  color: var(--navyBlue);
+  font-size: .9em;
+  font-weight: 500;
+  padding-bottom: .5em;
+}
+
+div.contact .subtitle {
+  font-weight: 500;
+  font-size: .5em;
+}
+
+div.contact button {
+  margin-top: 10px;
+}
+
+div.contact p,
+div.contact button {
+  font-size: .6em;
+}
+
+div.contact p:nth-child(odd) {
+  margin-bottom: 3px;
+}
+
+p button.tag {
+  border: none;
+  color: white;
+  border-radius: .5em;
+  background-color: var(--lightBrown);
+  font-size: .9em;
+  font-weight: 500;
+  margin: 2px;
+}
+
+button.edit {
+  border: 1px solid forestgreen;
+  background-color: forestgreen;
+}
+
+button.edit:hover {
+  color: forestgreen;
+}
+
+button.delete {
+  background-color: palevioletred;
+  border: 1px solid palevioletred;
+}
+
+button.delete:hover {
+  color: palevioletred;
+}
+
+button.delete:hover,
+button.edit:hover {
+  background-color: white;
+}
+
+button.edit,
+button.delete {
+  color: white;
+  border-radius: .2em;
+}
+
+header.main-headerCC {
+  grid-row: 1 / 2;
+  grid-column: 1 / 6;
+  display: grid;
+  background-color: var(--lightGray);
+}
+
+header.main-headerCC h2 {
+  justify-self: center;
+  align-self: center;
+  color: var(--navyBlue);
+  font-weight: 500;
+}
+
+form {
+  grid-row: 2 / 3;
+  grid-column: 1 / 6;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin-top: 50px;
+/*  grid-template-columns: repeat(3, 1fr);*/
+/*  grid-template-rows: repeat(3, 50px) 1fr repeat(2, 50px);*/
+}
+
+form fieldset {
+  display: contents;
+}
+
+form div.gridParent {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  display: grid;
+  grid-template-rows: repeat(3, 50px) 1fr repeat(2, 50px);
+}
+
+div.gridParent label[for="name"],
+div.gridParent label[for="email"],
+div.gridParent label[for="phone"] {
+  grid-column: 1 / 2;
+  margin-left: 150px;
+}
+
+div.gridParent label[for="name"],
+div.gridParent input#name {
+  grid-row: 1 / 2;
+}
+
+div.gridParent label[for="email"],
+div.gridParent input#email {
+  grid-row: 2 / 3;
+}
+
+div.gridParent label[for="phone"],
+div.gridParent input#phone {
+  grid-row: 3 / 4;
+}
+
+div.gridParent input#name,
+div.gridParent input#email,
+div.gridParent input#phone {
+  grid-column: 2 / 3;
+}
+
+div.tagline {
+  grid-column: 1 / 4;
+  grid-row: 4 / 5;
+  display:grid;
+  margin-left: 150px;
+}
+
+div.gridParent input#name,
+div.gridParent input#email,
+div.gridParent input#phone {
+  width: 12em;
+  height: 1.5em;
+  justify-self: start;
+  align-self: center;
+}
+
+div.tagline button {
+  display: inline;
+  font-size: .7em;
+  width: 6em;
+  height: 2em;
+  border-radius: 6px;
+  border: 1px solid var(--lightBrown);
+}
+
+.buttonOff {
+  color: var(--lightBrown);
+  background-color: white;
+}
+
+.buttonOn {
+  color: white;
+  background-color: var(--lightBrown);
+}
+
+input.submit {
+  border: 1px solid forestgreen;
+  background-color: forestgreen;
+  justify-self: start;
+}
+
+input.cancel {
+  background-color: palevioletred;
+  border: 1px solid palevioletred;
+  justify-self: end;
+  margin-left: 150px;
+}
+
+
+input.submit:hover {
+  color: forestgreen;
+}
+
+input.cancel:hover {
+  color: palevioletred;
+}
+
+input.submit:hover,
+input.cancel:hover {
+  background-color: white;
+}
+
+input.submit,
+input.cancel {
+  color: white;
+  border-radius: .2em;
+  width: 100px;
+  height: 25px;
+  grid-row: 5 / 6;
+  grid-column: 2 / 3;
+  align-self: end;
+  margin-bottom: 10px;
+}
+
+.gridParent p#formError {
+  grid-row: 6 / 7;
+  grid-column: 2 / 3; 
+}
+
+.gridParent p {
+  font-size: .7em;
+  justify-self: start;
+  align-self: center;
+}
+
+.errorText {
+  color: red;
+  margin-right: 50px;
+}
+
+.redBorder {
+  border: red solid 2px;
+}

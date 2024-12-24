@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/handlebars.js"></script>
+  <!-- <script src="/javascripts/main.js" type="text/javascript"></script> -->
+  <script type="module" src="/javascripts/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+</head>
+<body>
+  <header class="banner">
+    <h1>Contact Manager</h1>
+  </header>
+  <main>
+
+  </main>
+  <script type="text/x-handlebars" id="tags">
+    {{#each tags}}
+      <option>{{tag}}</option>
+    {{/each}}
+  </script>
+  <script type="text/x-handlebars" id="contactsTemplate">
+    {{#each contacts}}
+      <div class="contact">
+        <h2>{{full_name}}</h2>
+        <p class="subtitle">NUMBER</p>
+        <p>{{phone_number}}</p>
+        <p class="subtitle">EMAIL</p>
+        <p>{{email}}</p>
+        <p class="subtitle">TAGS</p>
+        <p>
+          {{#if tags}}
+            {{#each tags}}
+              <button class="tag">{{this}}</button>
+            {{/each}}
+          {{/if}}
+        </p>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+      </div>
+    {{/each}}
+  </script>
+  <script type="text/x-handlebars" id="mainTemplate">
+    <header class="main-header">
+      <button>Add Contact</button>
+      <button>Add Tag</button>
+      <input type="text" name="search" placeholder="search" id="search">
+      <select>
+        <option>Placeholder</option>
+      </select>
+    </header>
+    <div class="contacts">
+    </div>
+  </script>
+  <script type="text/x-handlebars" id="addContactTemplate">
+    <header class="main-headerCC">
+      <h2>CREATE CONTACT</h2>
+    </header>
+      <form action="#" method="post">
+        <fieldset>
+          <div class="gridParent">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Full Name" autocomplete="off" pattern="[a-zA-Z]+ [A-Za-z]+( )*[A-Za-z]+( )*[A-Za-z]+" required>
+            <p id="nameError" class="errorText"></p>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="myName@domain.com" autocomplete="off" pattern=".{1,}@.{1,}(.com)" required>
+            <p id="emailError" class="errorText"></p>
+
+            <label for="phone">Telephone:</label>
+            <input type="tel" name="phone" id="phone" placeholder="1-234-564-1234" autocomplete="off" pattern="\d{1}-\d{3}-\d{3}-\d{4}" required>
+            <p id="phoneError" class="errorText"></p>
+
+            <div class="tagline">
+              <label for="tags">Tags:</label>
+              <div id="tags">
+                <button class="buttonOff">asdsad</button>
+                <button class="buttonOff">asdsad</button>
+                <button class="buttonOff">asdsad</button>
+              </div>
+            </div>
+            <input type="submit" name="submit" value="submit" class="submit">
+            <input type="submit" name="cancel" value="cancel" class="cancel">
+            <p id="formError"></p>
+          </div>
+        </fieldset>
+      </form> 
+  </script>
+</body>
+</html>
