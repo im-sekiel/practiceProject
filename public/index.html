@@ -22,14 +22,33 @@
   <main>
 
   </main>
+  <script type="text/x-handlebars" id="confirmationPageTemplate">
+    <div id="grayEverywhere"></div>
+    <div id="deleteConfirmation">
+      <p>Are you sure you want to delete this contact?</p>
+      <input type="button" name="deleteConfirmationButton" id="deleteConfirmationButton" value="Yes, delete">
+      <input type="button" name="cancelConfirmationButton" id="cancelConfirmationButton" value="Don't delete">
+    </div>
+  </script>
   <script type="text/x-handlebars" id="tags">
     {{#each tags}}
       <option>{{tag}}</option>
     {{/each}}
   </script>
+  <script type="text/x-handlebars" id="addTagTemplate">
+    <header class="main-headerCC">
+      <h2>ADD A TAG</h2>
+    </header>
+    <form class="addTagGrid">
+        <input type="text" name="addTag" placeholder="Add your one word tag here" id="addTag">
+        <input type="submit" name="submitTag" id="submitTag" class="submit" value="Submit">
+        <input type="button" name="cancelTag" id="cancelTag" class="cancel" value="Cancel">
+        <p class="tagMessage"></p>
+    </form>
+  </script>
   <script type="text/x-handlebars" id="contactsTemplate">
     {{#each contacts}}
-      <div class="contact">
+      <div class="contact" data-id="{{id}}">
         <h2>{{full_name}}</h2>
         <p class="subtitle">NUMBER</p>
         <p>{{phone_number}}</p>
@@ -39,7 +58,7 @@
         <p>
           {{#if tags}}
             {{#each tags}}
-              <button class="tag">{{this}}</button>
+              <button class="tag off">{{this}}</button>
             {{/each}}
           {{/if}}
         </p>
@@ -53,9 +72,7 @@
       <button>Add Contact</button>
       <button>Add Tag</button>
       <input type="text" name="search" placeholder="search" id="search">
-      <select>
-        <option>Placeholder</option>
-      </select>
+      <input type="button" name="resetSearch" id="resetSearch" value="Reset Search">
     </header>
     <div class="contacts">
     </div>
@@ -67,32 +84,66 @@
       <form action="#" method="post">
         <fieldset>
           <div class="gridParent">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" placeholder="Full Name" autocomplete="off" pattern="[a-zA-Z]+ [A-Za-z]+( )*[A-Za-z]+( )*[A-Za-z]+" required>
+            <label for="full_name">Name:</label>
+            <input type="text" name="full_name" id="full_name" placeholder="Full Name" autocomplete="off" pattern="[a-zA-Z]+ [A-Za-z]+( )*[A-Za-z]+( )*[A-Za-z]+" required>
             <p id="nameError" class="errorText"></p>
 
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" placeholder="myName@domain.com" autocomplete="off" pattern=".{1,}@.{1,}(.com)" required>
             <p id="emailError" class="errorText"></p>
 
-            <label for="phone">Telephone:</label>
-            <input type="tel" name="phone" id="phone" placeholder="1-234-564-1234" autocomplete="off" pattern="\d{1}-\d{3}-\d{3}-\d{4}" required>
+            <label for="phone_number">Telephone:</label>
+            <input type="tel" name="phone_number" id="phone_number" placeholder="1-234-564-1234" autocomplete="off" pattern="\d{1}-\d{3}-\d{3}-\d{4}" required>
             <p id="phoneError" class="errorText"></p>
 
             <div class="tagline">
               <label for="tags">Tags:</label>
               <div id="tags">
-                <button class="buttonOff">asdsad</button>
-                <button class="buttonOff">asdsad</button>
-                <button class="buttonOff">asdsad</button>
+                {{#each tags}}
+                  <button class="buttonOff">{{this}}</button>
+                {{/each}}
               </div>
             </div>
             <input type="submit" name="submit" value="submit" class="submit">
-            <input type="submit" name="cancel" value="cancel" class="cancel">
+            <input type="button" name="cancel" value="cancel" class="cancel">
             <p id="formError"></p>
           </div>
         </fieldset>
       </form> 
+  </script>
+  <script type="text/x-handlebars" id="updateContactTemplate">
+    <header class="main-headerCC">
+      <h2>CREATE CONTACT</h2>
+    </header>
+    <form action="#" method="post">
+      <fieldset>
+        <div class="gridParent">
+          <label for="full_name">Name:</label>
+          <input type="text" name="full_name" id="full_name" placeholder="Full Name" autocomplete="off" pattern="[a-zA-Z]+ [A-Za-z]+( )*[A-Za-z]+( )*[A-Za-z]+" value="{{full_name}}" required>
+          <p id="nameError" class="errorText"></p>
+
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" placeholder="myName@domain.com" autocomplete="off" pattern=".{1,}@.{1,}(.com)" value="{{email}}"required>
+          <p id="emailError" class="errorText"></p>
+
+          <label for="phone_number">Telephone:</label>
+          <input type="tel" name="phone_number" id="phone_number" placeholder="1-234-564-1234" autocomplete="off" pattern="\d{1}-\d{3}-\d{3}-\d{4}" value="{{phone_number}}" required>
+          <p id="phoneError" class="errorText"></p>
+
+          <div class="tagline">
+            <label for="tags">Tags:</label>
+            <div id="tags">
+              {{#each tags}}
+                <button class="buttonOff">{{this}}</button>
+              {{/each}}
+            </div>
+          </div>
+          <input type="submit" name="submit" value="submit" class="submit">
+          <input type="button" name="cancel" value="cancel" class="cancel">
+          <p id="formError"></p>
+        </div>
+      </fieldset>
+    </form> 
   </script>
 </body>
 </html>

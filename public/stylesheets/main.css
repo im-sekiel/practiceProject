@@ -97,6 +97,16 @@ h1 {
 /*  margin-right: 14em;*/
 }
 
+.main-header input[type='button'] {
+  display: inline;
+  grid-row: 1 / 2;
+  grid-column: 3 / 4;
+  align-self: center;
+  justify-self: flex-start;
+  height: 2.5em;
+  width: 8em;
+}
+
 div.contacts {
   display: inline-grid;
   padding:15px 40px;
@@ -137,13 +147,21 @@ div.contact p:nth-child(odd) {
 }
 
 p button.tag {
-  border: none;
-  color: white;
+  border: 1px solid var(--lightBrown);
   border-radius: .5em;
-  background-color: var(--lightBrown);
   font-size: .9em;
   font-weight: 500;
   margin: 2px;
+}
+
+p button.off {
+  color: var(--lightBrown);
+  background-color: white;
+}
+
+p button.on {
+  color: white;
+  background-color: var(--lightBrown);
 }
 
 button.edit {
@@ -196,8 +214,6 @@ form {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   margin-top: 50px;
-/*  grid-template-columns: repeat(3, 1fr);*/
-/*  grid-template-rows: repeat(3, 50px) 1fr repeat(2, 50px);*/
 }
 
 form fieldset {
@@ -211,15 +227,15 @@ form div.gridParent {
   grid-template-rows: repeat(3, 50px) 1fr repeat(2, 50px);
 }
 
-div.gridParent label[for="name"],
+div.gridParent label[for="full_name"],
 div.gridParent label[for="email"],
-div.gridParent label[for="phone"] {
+div.gridParent label[for="phone_number"] {
   grid-column: 1 / 2;
   margin-left: 150px;
 }
 
-div.gridParent label[for="name"],
-div.gridParent input#name {
+div.gridParent label[for="full_name"],
+div.gridParent input#full_name {
   grid-row: 1 / 2;
 }
 
@@ -228,14 +244,14 @@ div.gridParent input#email {
   grid-row: 2 / 3;
 }
 
-div.gridParent label[for="phone"],
-div.gridParent input#phone {
+div.gridParent label[for="phone_number"],
+div.gridParent input#phone_number {
   grid-row: 3 / 4;
 }
 
-div.gridParent input#name,
+div.gridParent input#full_name,
 div.gridParent input#email,
-div.gridParent input#phone {
+div.gridParent input#phone_number {
   grid-column: 2 / 3;
 }
 
@@ -246,9 +262,9 @@ div.tagline {
   margin-left: 150px;
 }
 
-div.gridParent input#name,
+div.gridParent input#full_name,
 div.gridParent input#email,
-div.gridParent input#phone {
+div.gridParent input#phone_number {
   width: 12em;
   height: 1.5em;
   justify-self: start;
@@ -329,6 +345,120 @@ input.cancel {
   margin-right: 50px;
 }
 
+.successText {
+  color: green;
+  margin-right: 50px;
+}
+
 .redBorder {
   border: red solid 2px;
+}
+
+.redText {
+  color: red;
+}
+
+.addTagGrid {
+  grid-row: 2 / 3;
+  grid-column: 1 / 6;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: .5fr 1fr;
+}
+
+.addTagGrid input {
+  justify-self: center;
+}
+
+
+.addTagGrid input[type="text"] {
+  height: 30px;
+  width: 300px;
+  grid-row: 1 / 2;
+  grid-column: 1 / 3;
+}
+
+.addTagGrid input[type="submit"] {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  align-self: start;
+  justify-self: end;
+}
+
+.addTagGrid input[type="button"] {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  margin-left: 10px;
+  align-self: start;
+  justify-self: left;
+}
+
+.addTagGrid p {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+  justify-self: center;
+  align-self: center;
+  font-size: .7em;
+  margin-bottom: 100px;
+  padding: 10px 25px;
+  border-radius: 5px;
+}
+
+div#deleteConfirmation {
+  width: 500px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  background-color: white;
+  border: black solid 1px;
+  display: grid;
+  justify-items: center;
+  padding: 50px 20px;
+  z-index: 3;
+}
+
+#deleteConfirmationButton,
+#cancelConfirmationButton {
+  margin: 0px auto;
+  align-self: center;
+}
+
+#cancelConfirmationButton {
+  border: 1px solid forestgreen;
+  background-color: forestgreen;
+}
+
+#cancelConfirmationButton:hover {
+  color: forestgreen;
+}
+
+#deleteConfirmationButton {
+  background-color: palevioletred;
+  border: 1px solid palevioletred;
+}
+
+#deleteConfirmationButton:hover {
+  color: palevioletred;
+}
+
+#deleteConfirmationButton:hover,
+#cancelConfirmationButton:hover {
+  background-color: white;
+}
+
+#cancelConfirmationButton,
+#deleteConfirmationButton {
+  color: white;
+  border-radius: .2em;
+}
+
+#grayEverywhere {
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(0, 0, 0, .5);
 }

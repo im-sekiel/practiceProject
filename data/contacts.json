@@ -14,10 +14,59 @@
     "tags": "work,friend"
   },
   {
-    "id": 3,
-    "full_name": "Pete Hanson",
-    "email": "ph@example.com",
-    "phone_number": "54321098761",
-    "tags": null
+    "full_name": "Thomas Filler",
+    "phone_number": "1-800-123-1234",
+    "email": "T.filler@yahoo.com",
+    "tags": "work,friend,sibling,family,college",
+    "id": 4
+  },
+  {
+    "full_name": "Robert J Downey",
+    "phone_number": "1-300-554-2345",
+    "email": "RJ@live.com",
+    "tags": "employee,sibling,family",
+    "id": 6
+  },
+  {
+    "full_name": "Sza Huh",
+    "phone_number": "1-800-213-2134",
+    "email": "Yeeee@dsadsa.com",
+    "tags": "college,classmate",
+    "id": 7
+  },
+  {
+    "full_name": "John D Doe",
+    "phone_number": "1-432-324-3242",
+    "email": "JohnnyDee@live.com",
+    "tags": "fam,school",
+    "id": 8
+  },
+  {
+    "full_name": "Robert A Lee",
+    "phone_number": "1-123-123-3234",
+    "email": "asdasd@dma.com",
+    "tags": "friend,college,fam",
+    "id": 11
+  },
+  {
+    "full_name": "Roe Wade",
+    "phone_number": "1-123-123-1243",
+    "email": "vs@school.com",
+    "tags": "friend,fam,school",
+    "id": 12
+  },
+  {
+    "full_name": "elon love",
+    "phone_number": "0-000-000-0000",
+    "email": "aasd.com@hotmail.com",
+    "tags": "school",
+    "id": 13
+  },
+  {
+    "full_name": "Ibroken ITs",
+    "phone_number": "1-123-234-2342",
+    "email": "gmail.com@gmail.com",
+    "tags": "2024interviewed,interview panels 2024",
+    "id": 14
   }
 ]
